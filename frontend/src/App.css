@@ -53,10 +53,9 @@ nav button:hover {
 }
 
 nav button:focus {
-  outline: none;   
+  outline: none;
   box-shadow: none;
 }
-
 
 .toggle {
   background: #444;

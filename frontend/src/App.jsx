@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import LightRays from './LightRays';
+import LightRays from "./LightRays";
 
 const TABS = [
   { name: "Home" },
@@ -16,8 +16,8 @@ function App() {
   return (
     <div className='dark fullpage'>
       <LightRays
-        raysOrigin="top-center"
-        raysColor="#e1e0c3ff"
+        raysOrigin='top-center'
+        raysColor='#e1e0c3ff'
         raysSpeed={1.5}
         lightSpread={0.8}
         rayLength={1.2}
@@ -25,7 +25,7 @@ function App() {
         mouseInfluence={0.1}
         noiseAmount={0.1}
         distortion={0.05}
-        className="custom-rays"
+        className='custom-rays'
       />
       <header className='navbar'>
         <img src='/devchanbin2.svg' alt='' className='logo' />
