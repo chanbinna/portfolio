@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Renderer, Program, Triangle, Mesh } from "ogl";
 import "./LightRays.css";
 
-const DEFAULT_COLOR = "#ffffff";
+const DEFAULT_COLOR = "#ffffffff";
 
 const hexToRgb = (hex) => {
   const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -41,8 +41,8 @@ const LightRays = ({
   raysOrigin = "top-center",
   raysColor = DEFAULT_COLOR,
   raysSpeed = 1,
-  lightSpread = 1,
-  rayLength = 2,
+  lightSpread = 2,
+  rayLength = 3,
   pulsating = false,
   fadeDistance = 1.0,
   saturation = 1.0,
@@ -71,7 +71,7 @@ const LightRays = ({
         const entry = entries[0];
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     observerRef.current.observe(containerRef.current);

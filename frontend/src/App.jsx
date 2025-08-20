@@ -1,17 +1,22 @@
-import { useState } from "react";
+import { Link, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import LightRays from "./LightRays";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Experience from "./pages/Experience";
+import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
 
 const TABS = [
-  { name: "Home" },
-  { name: "Projects" },
-  { name: "Experience" },
-  { name: "Resume" },
-  { name: "Contact" },
+  { name: "Home", path: "/" },
+  { name: "Projects", path: "/projects" },
+  { name: "Experience", path: "/experience" },
+  { name: "Resume", path: "/resume" },
+  { name: "Contact", path: "/contact" },
 ];
 
 function App() {
-  const [activeTab, setActiveTab] = useState("Home");
+  const location = useLocation();
 
   return (
     <div className='dark fullpage'>
@@ -31,69 +36,39 @@ function App() {
         <img src='/devchanbin2.svg' alt='' className='logo' />
         <nav>
           {TABS.map((tab) => (
-            <button
+            <Link
               key={tab.name}
-              className={activeTab === tab.name ? "active" : ""}
-              onClick={() => setActiveTab(tab.name)}
+              to={tab.path}
+              className={
+                location.pathname === tab.path ||
+                (tab.path === "/" && location.pathname === "")
+                  ? "active"
+                  : ""
+              }
+              style={{ textDecoration: "none" }}
             >
-              {tab.name}
-            </button>
+              <button
+                className={
+                  location.pathname === tab.path ||
+                  (tab.path === "/" && location.pathname === "")
+                    ? "active"
+                    : ""
+                }
+              >
+                {tab.name}
+              </button>
+            </Link>
           ))}
         </nav>
       </header>
       <main className='content'>
-        {activeTab === "Home" && (
-          <section>
-            <h1>Welcome!</h1>
-            <p>
-              This is the home page of your portfolio. Use the tabs above to
-              explore Projects, Experience, and Contact info.
-            </p>
-          </section>
-        )}
-        {activeTab === "Projects" && (
-          <section>
-            <h1>Projects</h1>
-            <ul>
-              <li>Project 1: Description</li>
-              <li>Project 2: Description</li>
-              <li>Project 3: Description</li>
-            </ul>
-          </section>
-        )}
-        {activeTab === "Experience" && (
-          <section>
-            <h1>Experience</h1>
-            <ul>
-              <li>Job 1: Details</li>
-              <li>Job 2: Details</li>
-            </ul>
-          </section>
-        )}
-        {activeTab === "Resume" && (
-          <section>
-            <h1>Resume</h1>
-            <p>
-              Download my resume{" "}
-              <a href='#' style={{ color: "#8ab4f8" }}>
-                here
-              </a>
-              .
-            </p>
-            <ul>
-              <li>Education: Your University, Degree, Year</li>
-              <li>Skills: React, JavaScript, CSS, ...</li>
-              <li>Certifications: Example Certification</li>
-            </ul>
-          </section>
-        )}
-        {activeTab === "Contact" && (
-          <section>
-            <h1>Contact</h1>
-            <p>Email: your.email@example.com</p>
-            <p>LinkedIn: linkedin.com/in/yourprofile</p>
-          </section>
-        )}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/experience' element={<Experience />} />
+          <Route path='/resume' element={<Resume />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
       </main>
     </div>
   );
