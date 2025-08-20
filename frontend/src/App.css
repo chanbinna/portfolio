@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.dark {
+  background: #181818;
+  color: #f3f3f3;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.fullpage {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(34, 34, 34, 0.3);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  gap: 0.5rem;
+}
+nav button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+  outline: none;
+}
+nav button.active,
+nav button:hover {
+  background: #444;
+}
+
+nav button:focus {
+  outline: none;   
+  box-shadow: none;
+}
+
+
+.toggle {
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.content {
+  position: relative;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(34, 34, 34, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+.light .content {
+  background: #fff;
+  color: #181818;
+}
+.content h1 {
+  margin-top: 0;
+}
+
+.logo {
+  height: 50px;
+}
